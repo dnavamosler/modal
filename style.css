@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    font-family: arial;
+}
+#platzi{
+    width: 100%;
+}
+.header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 55%;
+    visibility: hidden;
+    cursor: pointer;
+}
+.header.active{
+    visibility: visible;
+}
+#overlay{
+    background: rgba(0,0,0, .6);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1.3s ease-out;
+}
+#overlay.active{
+    visibility: visible;
+    opacity: 1;
+}
+#modal{
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 500px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 25px 10px;
+    color: #3f3f3f;
+    position: relative;
+    transform: translateY(-3000px);
+}
+@keyframes modalIn{
+    from{
+        transform: translateY(-3000px);
+        visibility: hidden;
+    }
+    65%{
+        transform: translateY(20px);
+    }
+    75%{
+        transform: translateY(-15px);
+    }
+    85%{
+        transform: translateY(10px);
+    }
+    to{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+@keyframes modalOut{
+    from{
+        transform: translateY(0);
+        visibility: visible;
+    }
+    65%{
+        transform: translateY(10px);
+    }
+    75%{
+        transform: translateY(-15px);
+    }
+    85%{
+        transform: translateY(20px);
+    }
+    to{
+        transform: translateY(-3000px);
+        visibility: hidden;
+    }
+}
+#modal input{
+    display: block;
+    margin: 0 auto;
+    height: 20%;
+    width: 55%;
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid #979797;
+    outline: none;
+}
+.botonera{
+    margin-top: 15px;
+}
+.btn{
+    cursor: pointer;
+    border: 1px transparent;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: inset 0px -4px 0px 0px rgba(0, 0 , 0, .3);
+    transition: .2s;
+    outline: none;
+    will-change: transform;
+    color: #fff;
+}
+.btn:active{
+    transform: scale(.85);
+}
+.btn.principal{
+    background-color: #7fc719;
+}
+.btn-exit{
+    position: absolute;
+    cursor: pointer;
+    top: 5%;
+    height: 40px;
+    width: 40px;
+    right: 5%;
+    border: 4px solid #ff463b;
+    border-radius: 50%;
+    color: #ff463b;
+    font-weight: 900;
+    transition: .2s;
+    outline: none;
+    will-change: transform;
+    background: transparent;
+}
+.btn-exit:active{
+    transform: scale(.85);
+}

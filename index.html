@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>platzi (modal)</title>
+</head>
+<body>
+    <div class="header active" id="header"></div>
+    <img id="platzi" src="platzi.webp" alt="platzi-page">
+    <div id="overlay">
+        <div id="modal">
+            <h2>NEWSLETTER</h2>
+            <button class="btn-exit" id="btn-exit">X</button>
+            <p>Suscríbete a nuestro boletín semanal para recibir las ultimas noticias de y actualizaciones de lo que esta sucediendo en platzi.</p>          
+            <input type="text" placeholder="Ingresa tu dirección de correo...">  
+            <div class="botonera">
+                    <button class='btn principal' id="btn-main">Inscribir</button>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        const $btn = document.querySelector("#btn-main");
+        const $modal = document.querySelector("#modal");
+        const $btnExit = document.querySelector("#btn-exit");
+        const $header = document.querySelector("#header");
+        const $overlay = document.querySelector("#overlay");
+        
+
+        // click en el header, el modal entra
+        $header.addEventListener('click', (e) =>{
+            $modal.style.animation = ('modalIn .8s ease-out forwards');
+            $header.classList.remove('active');
+            $overlay.classList.add('active');
+        });
+
+
+        // click en boton de inscribir (el modal se va)
+        $btn.addEventListener('click', (e) =>{
+            $modal.style.animation = ('modalOut .8s ease-out forwards');
+            $header.classList.add('active');
+            $overlay.classList.remove('active');
+        });
+
+        // click en boton de exit (el modal se va)
+        $btnExit.addEventListener('click', (e) =>{
+            $modal.style.animation = ('modalOut .8s ease-out forwards');
+            $header.classList.add('active');
+            $overlay.classList.remove('active');
+        });
+
+    // click fuera del modal, el modal se va
+        $overlay.addEventListener('click', (e) =>{
+            
+            if(e.target.id == 'modal' || e.target.parentNode == $modal)
+                console.log('ok');
+            else{
+                $modal.style.animation = ('modalOut .8s ease-out forwards');
+            $header.classList.add('active');
+            $overlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
